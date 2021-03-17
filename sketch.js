@@ -21,6 +21,8 @@ let newReindeers = [{
   color: "purple"
 }];
 
+let randomIndex;
+
 function setup() {
   createCanvas(600, 600);
   background(220);
@@ -73,18 +75,30 @@ function setup() {
 // add name & color in array, turn value to object
   console.log(newReindeers[0].name);
   console.log(newReindeers[4].color);
+// ~~~~~~~~~~~~~~~~~~~~~~ END ~~~~~~~~~~~~~~~~~~~~~~
+
 
 // ~~~~~~~~~~~~~~~~~~~~~~ 2b.4 ~~~~~~~~~~~~~~~~~~~~~~
-
   console.log("");
         console.log("THIS IS 2b.4");
-
 // ..................pull random item from array..................
   console.log(random(5));
-  console.log(newReindeers[int(random(5))]);
+
+  randomIndex = int(random(newReindeers.length));
+// int = NOT decimal
+  // console.log(newReindeers[randomIndex].name);
+  text(newReindeers[randomIndex].name, 50, 50);
+
+  newReindeers.splice(randomIndex, 1);
+
 }
 
 function draw() {
+}
 
-
+function mousePressed() {
+  background(random(200,255));
+  randomIndex = int(random(newReindeers.length));
+  text(newReindeers[randomIndex].name, 50, 50);
+  // newReindeers.splice(randomIndex, 1);
 }
